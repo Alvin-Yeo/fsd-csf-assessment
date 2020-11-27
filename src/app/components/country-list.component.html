@@ -1,0 +1,24 @@
+<main>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col d-flex justify-content-between">
+                <p class="lead">Countries</p>
+                <button class="btn btn-primary" [routerLink]="['/apikey']">API Settings</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <ul class="list-group">
+                    <li *ngFor="let country of countryList" class="list-group-item">
+                        <a [routerLink]="['/country', country.cc]">
+                            <div class="d-flex justify-content-between">
+                                <p class="font-weight-bold">{{ country.name }}</p>
+                                <img src="{{ country.flagUrl }}" alt="{{ country.cc }}">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>

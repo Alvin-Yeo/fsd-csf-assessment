@@ -1,0 +1,28 @@
+<main>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col">
+                <p class="lead">API Settings</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <form [formGroup]="apiForm">
+                    <div class="form-group">
+                        <label for="key">Please enter the API Key from newsapi.org</label>
+                        <input type="text" id="key" class="form-control" name="key" required formControlName="key">
+                    </div>
+                    <div class="form-group d-flex justify-content-between">
+                        <div>
+                            <button class="btn btn-warning mr-2" [routerLink]="['/']">Back</button>
+                            <button class="btn btn-danger" [disabled]="!apiForm.valid" (click)="deleteApiKey()">Delete</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" [disabled]="!apiForm.valid" (click)="saveApiKey()">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

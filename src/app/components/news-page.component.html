@@ -1,0 +1,37 @@
+<main>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="lead">News from <strong>{{ country }}</strong></p>
+                    <buton [routerLink]="['/country']" class="btn btn-warning">Back</buton>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <p class="lead">Latest Articles</p>
+                <p>Last updated at {{ lastCachedTime }}</p>
+                <div class="news-list">
+                    <article class="news mb-4" *ngFor="let n of latestNewsList; let i = index">
+                        <img src="{{ n.image }}" alt="">
+                        <p>{{ n.title }}</p>
+                        <p>Source: {{ n.source }}</p>
+                        <p>Author: {{ n.author }}</p>
+                        <p>Published at: {{ n.date.toDateString() }}</p>
+                        <p>{{ n.desc.slice(0, 100).concat('...') }}</p>
+                        <hr>
+                        <p>{{ n.content }}</p>
+                        <a href="{{ n.url }}" target="_blank" class="btn btn-primary mr-3">Read More</a>
+                        <button (click)="saveNews(i); saveButton.disabled = true;" class="btn btn-primary" [disabled] #saveButton>Save</button>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <p class="lead">Saved Articles</p>
+            </div>
+        </div>  
+    </div>
+</main>
