@@ -66,7 +66,7 @@ export class NewsPageComponent implements OnInit {
     const results = await this.http.getNews(this.cc, this.apikey);
     console.log('Results: ', results);
 
-    if(results.articles.length > 0) {
+    if(results && results.articles.length > 0) {
       this.latestNewsList = results.articles.map(n => {
         return {
           source: n.source.name,
